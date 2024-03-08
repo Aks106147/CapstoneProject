@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+  db:
+    image: mysql:5.7
+    platform: linux/x86_64
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'historicaldata'
+      MYSQL_USER: 'app'
+      MYSQL_PASSWORD: 'appuser'
+      MYSQL_ROOT_PASSWORD: 'Abc#123'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - my-db:/var/lib/mysql
+
+volumes:
+  my-db:
